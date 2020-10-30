@@ -6,7 +6,8 @@ before_install:
  - gem install bundler
 script:
   — bundle install
-  - bundle exec rails db:{create,migrate} RAILS_ENV=test
+  - bundle exec rails db:create
+  # - bundle exec rails db:{create,migrate} RAILS_ENV=test
   - bundle exec rspec
 deploy:
   provider: heroku
