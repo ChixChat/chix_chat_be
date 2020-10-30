@@ -11,6 +11,6 @@ script:
   provider: heroku
   api_key:
     secure: "Ad0NIfymjNm5Njb1kfqCP9HmPtNIwbGSZVV8mYZ1S07qy8HEwYXmCyGhchHkxaKJ43axn/nAVhXGFAlJQgwY9d0V4FDXStqBWu9KgEheWX6TmjxpkkL8aOrmSdcf0GapEWHNldUzhEUExRIEKXEidq0CSsSxDvB/FQoT1+nItx4UvUXY9THa5EmoF0RcfiIKRMPdjc7Dk7Wud5W6lm+PObStUmugU6FNuNhZFpxrn/cs1juQJ7F4/cKwAsas5tZ/FhN57eNl30OKx+CZmvGyncA2EQXCtHj9s0Tv+qYnIqFVE1Oe3DB23izIVOIREdWRJb5vSl970WK+YQausLxcNqBD/FL24iBqtzyrxEFKjq2e0bgpuy96k4ZMX3jhQwV+iCIRjt5MfXr5VyBEwPbHieDXp5oR1D8NVxhFy8InK4VUBtU5oFYFXKV2u36Lva/rZRoXMryCEKtWul30o+VaIsKGEdE9QKQKl5XspdCzTOHGaDwD0D1dgEdvb9i+g7n5l3CkSacR6kuvQg6ei4/L9bUidoYo3Hb20G3rOoV8ObrfQePfN1y2bdrwOWrpN6JXqs6jj+7Qiu1ZLN9r9ByYr4ot5TV3lYq3nX2z+uDvl2i61RlCYwMHBh+okZm1xLukIS8K4QupKcIR4RAiRg0cvRfw2YAnmDKdGndj9d4YR58="
-  app: rails-test-app-article
+  app: chix-chat-be
   on:
     repo: ChixChat/chix_chat_be
