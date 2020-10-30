@@ -1,16 +1,18 @@
 language: ruby
 rvm:
  — 2.6.3
+before_install:
+ - yes | gem update --system --force
+ - gem install bundler
 script:
- — bundle install — jobs=3 — retry=3
- # - bundle exec rake assets:precompile
- # — bundle exec rake db:create
- # — bundle exec rake db:migrate
- # — bundle exec rspec
+  — bundle install
+  - bundle exec rails db:{create,migrate} RAILS_ENV=test
+  - bundle exec rspec
  deploy:
   provider: heroku
   api_key:
-    secure: "Ad0NIfymjNm5Njb1kfqCP9HmPtNIwbGSZVV8mYZ1S07qy8HEwYXmCyGhchHkxaKJ43axn/nAVhXGFAlJQgwY9d0V4FDXStqBWu9KgEheWX6TmjxpkkL8aOrmSdcf0GapEWHNldUzhEUExRIEKXEidq0CSsSxDvB/FQoT1+nItx4UvUXY9THa5EmoF0RcfiIKRMPdjc7Dk7Wud5W6lm+PObStUmugU6FNuNhZFpxrn/cs1juQJ7F4/cKwAsas5tZ/FhN57eNl30OKx+CZmvGyncA2EQXCtHj9s0Tv+qYnIqFVE1Oe3DB23izIVOIREdWRJb5vSl970WK+YQausLxcNqBD/FL24iBqtzyrxEFKjq2e0bgpuy96k4ZMX3jhQwV+iCIRjt5MfXr5VyBEwPbHieDXp5oR1D8NVxhFy8InK4VUBtU5oFYFXKV2u36Lva/rZRoXMryCEKtWul30o+VaIsKGEdE9QKQKl5XspdCzTOHGaDwD0D1dgEdvb9i+g7n5l3CkSacR6kuvQg6ei4/L9bUidoYo3Hb20G3rOoV8ObrfQePfN1y2bdrwOWrpN6JXqs6jj+7Qiu1ZLN9r9ByYr4ot5TV3lYq3nX2z+uDvl2i61RlCYwMHBh+okZm1xLukIS8K4QupKcIR4RAiRg0cvRfw2YAnmDKdGndj9d4YR58="
+    secure: "resku1yLvOh3KOBlAf2OzA5NQQ3O9e/dWG94tYi2339MwPq5NqrlEfqy3m95gX0K1NgFDA3l/MNK7F4V0Tmj2tP5cMQRTURR22KvNWOQaiO47Gug16UAhG4JQAtvLS2qU6IX0uo96uxzSye/YEDTSpO5mWcEotaHfP5mPMNDD7oW3p0VX9ATGO7fYxR4jJx4excbz7y8+pSlEt6SgBcRc4RbyBA+Yt/kdtCXiQh89HViMI7cuWv7rTVpO2bIjUknbX7N8SzQ+Kq22K4T/bvdKwfL58x2MGT17OYBAJot2a0HOyeyLUBZ4jeCoy82W6LMBEqIm+pBS1JNEoPYme2dw1vOE5pwoGfUHaYlaAYhKn8avMeqPDJKBAUkjz05dYVkdMcIFgVO+wahjOMso1sqvi6iATF4r+kjeNzcLPVHUldP8DoSvHiXQ68hWc/qmomFq1wARFnbs82vVkMuvccYad358dzB/rYfi6at3Y4rsC5C7f0S4T/2jtFpyMzw5Y2ISJ57gQ6CJYks7A0lg2dnsgnBcM1ggQg2YL57+fMdKg3zV8dCzXIxwwhnQgkE/n9aBsLoHObbZawrX6VeHfoTb+70zWTp1MXm8e5JQmF8SMUP9hFC5PrP6gtx/oWC91wMuTVPWFAoLvyFfltqbUs72CJWnd+Xyl5PZp3fHTZsWCw="
   app: chix-chat-be
+  run: rails db:{migrate}
   on:
     repo: ChixChat/chix_chat_be
