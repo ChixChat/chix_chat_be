@@ -27,8 +27,21 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'simplecov'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'webmock'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 group :development do
