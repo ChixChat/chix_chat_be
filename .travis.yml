@@ -1,17 +1,18 @@
 language: ruby
 rvm:
- — 2.6.3
+- 2.6.3
 before_install:
- - yes | gem update --system --force
- - gem install bundler
+- yes | gem update --system --force
+- gem install bundler
 script:
-  — bundle install
-  - bundle exec rails db:{create,migrate}
-  - bundle exec rspec
+- bundle install
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
 deploy:
   provider: heroku
   api_key:
-    secure: "resku1yLvOh3KOBlAf2OzA5NQQ3O9e/dWG94tYi2339MwPq5NqrlEfqy3m95gX0K1NgFDA3l/MNK7F4V0Tmj2tP5cMQRTURR22KvNWOQaiO47Gug16UAhG4JQAtvLS2qU6IX0uo96uxzSye/YEDTSpO5mWcEotaHfP5mPMNDD7oW3p0VX9ATGO7fYxR4jJx4excbz7y8+pSlEt6SgBcRc4RbyBA+Yt/kdtCXiQh89HViMI7cuWv7rTVpO2bIjUknbX7N8SzQ+Kq22K4T/bvdKwfL58x2MGT17OYBAJot2a0HOyeyLUBZ4jeCoy82W6LMBEqIm+pBS1JNEoPYme2dw1vOE5pwoGfUHaYlaAYhKn8avMeqPDJKBAUkjz05dYVkdMcIFgVO+wahjOMso1sqvi6iATF4r+kjeNzcLPVHUldP8DoSvHiXQ68hWc/qmomFq1wARFnbs82vVkMuvccYad358dzB/rYfi6at3Y4rsC5C7f0S4T/2jtFpyMzw5Y2ISJ57gQ6CJYks7A0lg2dnsgnBcM1ggQg2YL57+fMdKg3zV8dCzXIxwwhnQgkE/n9aBsLoHObbZawrX6VeHfoTb+70zWTp1MXm8e5JQmF8SMUP9hFC5PrP6gtx/oWC91wMuTVPWFAoLvyFfltqbUs72CJWnd+Xyl5PZp3fHTZsWCw="
+    secure: resku1yLvOh3KOBlAf2OzA5NQQ3O9e/dWG94tYi2339MwPq5NqrlEfqy3m95gX0K1NgFDA3l/MNK7F4V0Tmj2tP5cMQRTURR22KvNWOQaiO47Gug16UAhG4JQAtvLS2qU6IX0uo96uxzSye/YEDTSpO5mWcEotaHfP5mPMNDD7oW3p0VX9ATGO7fYxR4jJx4excbz7y8+pSlEt6SgBcRc4RbyBA+Yt/kdtCXiQh89HViMI7cuWv7rTVpO2bIjUknbX7N8SzQ+Kq22K4T/bvdKwfL58x2MGT17OYBAJot2a0HOyeyLUBZ4jeCoy82W6LMBEqIm+pBS1JNEoPYme2dw1vOE5pwoGfUHaYlaAYhKn8avMeqPDJKBAUkjz05dYVkdMcIFgVO+wahjOMso1sqvi6iATF4r+kjeNzcLPVHUldP8DoSvHiXQ68hWc/qmomFq1wARFnbs82vVkMuvccYad358dzB/rYfi6at3Y4rsC5C7f0S4T/2jtFpyMzw5Y2ISJ57gQ6CJYks7A0lg2dnsgnBcM1ggQg2YL57+fMdKg3zV8dCzXIxwwhnQgkE/n9aBsLoHObbZawrX6VeHfoTb+70zWTp1MXm8e5JQmF8SMUP9hFC5PrP6gtx/oWC91wMuTVPWFAoLvyFfltqbUs72CJWnd+Xyl5PZp3fHTZsWCw=
   app: chix-chat-be
+  run: rails db:{migrate}
   on:
     repo: ChixChat/chix_chat_be
